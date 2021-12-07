@@ -4,9 +4,10 @@ block_image_heigth=30;
 player_x=10;
 player_y=10;
 var player_object="";
+var block_image_object="";
 function player_update()
 {
-    fabric.block_image_heigth.fromURL("player.png",function(img){
+    fabric.Image.fromURL("player.png",function(img){
     player_object= Img;
 
     player_object.scaleToWidth(150);
@@ -15,7 +16,8 @@ function player_update()
     top:player_y,
     top:player_x
     });
-    canvas.add(player_object)})
+    canvas.add(player_object);
+});
 }
 function new_image(get_image){
 fabric.Image.fromURL(get_image, function(Img){
@@ -118,5 +120,44 @@ function my_Keydown(e)
         console.log("u");
     }
 
+}
+function Up(){
 
+    if(player_y >=0){
+        player_y=player_y-29;
+        console.log("block image height =" + block_image_heigth);
+        console.log("when up arow key is presed , x=" + player_x + " , y="+player_y);
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+function down(){
+
+    if(player_y <=500){
+        player_y=player_y+1;
+        console.log("block image height =" + block_image_heigth);
+        console.log("when down arow key is presed , x=" + player_x + " , y="+player_y);
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+function left(){
+
+    if(player_x >=0){
+        player_y=player_y-29;
+        console.log("block image width =" + block_image_width);
+        console.log("when left arow key is presed , x=" + player_x + " , y="+player_y);
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+function right(){
+
+    if(player_y <=850){
+        player_y=player_y-29;
+        console.log("block image height =" + block_image_heigth);
+        console.log("when right arow key is presed , x=" + player_x + " , y="+player_y);
+        canvas.remove(player_object);
+        player_update();
+    }
 }
